@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="blocJams">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Bloc Jams Angular</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,800,600,700,300">
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/landing.css">
+    <link rel="stylesheet" type="text/css" href="styles/collection.css">
+    <link rel="stylesheet" type="text/css" href="styles/album.css">
+    <link rel="stylesheet" type="text/css" href="styles/player_bar.css">
+</head>
 <main class="album-view container narrow">
      <section class="clearfix">
          <div class="column half">
@@ -10,10 +25,15 @@
          </div>
      </section>
      <table class="album-view-song-list">
-         <tr class="album-view-song-item">
-             <td class="song-item-number">1</td>
+         <tr class="album-view-song-item" ng-mouseover="hovered = true" ng-mouseleave="hovered = false">
+             <td class="song-item-number">
+                 <span ng-show="!playing && !hovered">1</span>
+                 <a class="album-song-button" ng-show="!playing && !hovered"><span class="ion-play"></span></a>
+                 <a class="album-song-button" ng-show="playing"><span class="ion-pause"></span></a>
              <td class="song-item-title">Blue</td>
              <td class="song-item-duration">3:31</td>
          </tr>
      </table>
  </main>
+ <ng-include src="'/templates/player_bar.html'"></ng-include>
+ </html>   
