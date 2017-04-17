@@ -19,7 +19,7 @@
              scope.value = 0;
              scope.max = 100;
              var seekBar = $(element); 
-             var percentString = function () {
+             var percentString = function() {
                  var value = scope.value;
                  var max = scope.max;
                  var percent = value / max *100;
@@ -46,6 +46,9 @@
                     $document.unbind('mouseup.thumb');
                 });
             };
+            scope.thumbStyle = function() {
+                return percentString();
+            };    
          }
              
     };
