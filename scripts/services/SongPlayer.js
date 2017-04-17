@@ -36,6 +36,11 @@
           * @desc Buzz object audio file
           * @type {Object}
           */
+      /**
+        * @desc Current playback time (in seconds) of currently playing song
+        * @type {Number}
+        */
+    SongPlayer.currentTime = null;
         /**
         * @function play
         * @desc Play current or new song
@@ -97,7 +102,17 @@
          * @param {Object} song
          */   
          
-
+      /**
+      * @function setCurrentTime
+      * @desc set current time (in seconds) of current song
+      * @param {Number} time
+      */
+    SongPlayer.setCurrentTime = function(time) {
+        if (currentBuzzObject) {
+            currentBuzzObject.setTime(time);
+        }          
+    };
+      
     return SongPlayer;
   }
  
